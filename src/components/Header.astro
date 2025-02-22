@@ -1,15 +1,25 @@
 ---
+import HeaderButton from "./HeaderButton.astro"
+
 console.log('javascript')
 ---
 
 <header class="py-8 px-4 mx-auto max-w-xl lg:px-6">
+    <div class="mx-auto text-center mb-8 lg:mb-16">
+        <h1 class="mb-9 text-6xl text-white text-center font-bold"> <a href="/">SpaceX Launches 🚀</a></h1>
+        
+        <h3 class="text-2xl text-white text-center font-mono">Esta es una zona que muestra<br> 
+            <span class="animate-rainbow">cohetes de SpaceX</span>
+            
+        </h3>
+        
+        <nav class="flex flex-col text-center items-center justify-between w-full md:flex-row font-mono mt-9 ">
+            <HeaderButton href="Lanzamientos">Últimos lanzamientos</HeaderButton>
+            <HeaderButton href="Viejos">Los más viejos</HeaderButton>
+            <HeaderButton href="about">Sobre el proyecto</HeaderButton>
+        </nav>
+    </div>
 
-    <h1 class="text-6xl text-white text-center font-bold"> <a href="/">Tienda de Donas</a></h1>
-    <h3 class="mt-9 text-2xl text-white text-center font-mono">Esta es una tienda online que vende donas</h3>
-    <nav class="flex flex-col text-center items-center justify-between w-full md:flex-row font-mono mt-9 ">
-        <a class="bg-slate-600 text-white text-sm max-md:mt-2 hover:bg-slate-800" href="Donas">Nuestras donas</a>
-        <a class="bg-slate-600 text-white text-sm max-md:mt-2 hover:bg-slate-800" href="Quienesomos">¿Quiénes somos?</a>
-        <a class="bg-slate-600 text-white text-sm max-md:mt-2 hover:bg-slate-800" href="Contactenos">Contáctenos</a>
-    </nav>
+    
     
 </header>

@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getLatestLaunches, getLaunchBy } from "../../services/spacex"
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params
+
+console.log({id})
+
+let launch
+if (id) { 
+    launch = await getLaunchBy({id})
+}
+
+export async function getStaticPaths() {
+
+    const launches = await getLatestLaunches()
+    
+    return launches.map(launch =>({
+        params: {id: launch.id},
+    }))
+
+}
+
+console.log(launch)
+---
+
+<Layout title ={`Lanzamiento ${id}`}>
+    <article>
+        {launch?.id}
+        Minim laborum quis officia magna non ipsum officia irure ipsum pariatur Lorem cupidatat sint labore. Sint ea mollit irure Lorem duis officia sit cillum duis ut velit Lorem. Ad sit esse ullamco adipisicing duis mollit. Mollit nulla veniam nulla sit officia velit do. Proident sint duis elit sunt incididunt esse aute dolore ut. Voluptate Lorem cupidatat aliqua in. Anim aute qui sint minim commodo quis culpa duis sunt.
+        Tempor consectetur sint elit id aliqua consequat id irure sit sit reprehenderit exercitation ut magna. Qui ipsum qui culpa excepteur nulla. Amet sint qui sint exercitation velit commodo tempor irure labore ipsum occaecat nostrud.
+        Sit reprehenderit voluptate esse et minim eiusmod ipsum laboris. Qui ea elit laboris exercitation sint. Nisi veniam tempor dolore ad elit reprehenderit pariatur elit incididunt.
+        Incididunt sint deserunt ut ullamco reprehenderit sint. Consequat reprehenderit minim dolor proident minim cillum ea officia aliqua eiusmod dolor mollit. Labore minim duis aliqua irure excepteur occaecat Lorem dolor nisi commodo magna irure.
+    </article>
+</Layout>
